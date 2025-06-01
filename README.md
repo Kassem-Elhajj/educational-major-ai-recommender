@@ -4,7 +4,10 @@
 
 For Angular:
 
->npx @angular/cli new frontend --skip-git       //To create the angular projec
+>npx @angular/cli new frontend --skip-git       //To create the angular project Choose:
+❌ No to SSR
+✅ No to zoneless (i.e., keep zone.js)
+
 >ng serve                                       //To lunch the servers
 
 
