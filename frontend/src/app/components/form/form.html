@@ -1,0 +1,18 @@
+<h2>Student Profile</h2>
+<form (ngSubmit)="onSubmit()">
+  <label>Name:</label>
+  <input type="text" [(ngModel)]="name" name="name" required>
+
+  <label>Grades:</label>
+  <input type="number" [(ngModel)]="grades.math" name="math" placeholder="Math" required>
+  <input type="number" [(ngModel)]="grades.biology" name="biology" placeholder="Biology">
+  <input type="number" [(ngModel)]="grades.cs" name="cs" placeholder="Computer Science">
+
+  <label>Interests (comma separated):</label>
+  <input type="text" [(ngModel)]="interests" name="interests">
+
+  <label>Achievements (comma separated):</label>
+  <input type="text" [(ngModel)]="achievements" name="achievements">
+
+  <button type="submit">Get Recommendations</button>
+</form>
