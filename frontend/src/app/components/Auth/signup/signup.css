@@ -1,0 +1,199 @@
+/* Main container styling - consistent with login */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+  padding: 20px;
+}
+
+/* Form styling with slight variation for signup */
+.Auth-form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(56, 161, 105, 0.1);
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
+  /* Slightly different border for distinction */
+  border-top: 4px solid #4caf50;
+}
+
+.Auth-form:hover {
+  box-shadow: 0 15px 35px rgba(56, 161, 105, 0.15);
+}
+
+.Auth-form h2 {
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  /* Small decoration under heading */
+  position: relative;
+}
+
+.Auth-form h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: #a5d6a7;
+  border-radius: 3px;
+}
+
+/* Form group styling - consistent with login */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.form-control::placeholder {
+  color: #bdbdbd;
+}
+
+/* Invalid state styling - consistent */
+.is-invalid {
+  border-color: #e53935;
+}
+
+.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.2);
+}
+
+.invalid-feedback {
+  color: #e53935;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Button styling with slight variation */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  /* Different hover effect for signup */
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.btn:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+/* Login link styling */
+.login-link {
+  text-align: center;
+  margin-top: 25px;
+  color: #616161;
+  font-size: 15px;
+}
+
+.login-link a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-link a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}
+
+/* Password strength indicator - bonus feature */
+.password-strength {
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.password-strength-bar {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .Auth-form {
+    padding: 30px 20px;
+  }
+  
+  .Auth-form h2 {
+    font-size: 24px;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+}

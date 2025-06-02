@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { LoginService } from '../../services/AuthServices/login/login.service';
-import { User } from '../../../types';
+import { LoginService } from '../../../services/AuthServices/login/login.service';
+import { User } from '../../../../types';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './login.html',
+  styleUrl: './login.css'
 })
-export class LoginComponent {
+export class Login {
   loginForm: FormGroup;
   user?: User
 

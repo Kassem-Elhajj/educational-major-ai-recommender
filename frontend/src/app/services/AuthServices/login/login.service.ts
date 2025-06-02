@@ -9,7 +9,7 @@ import { User } from '../../../../types';
   providedIn: 'root'
 })
 export class LoginService {
-  //To use API's make sure to include provideHttpClient() in providers in app.config.ts
+  //To use API's make sure to include provideHttpClient() in providers in app.config.ts(Verrrry important)
 
   private url = 'http://127.0.0.1:8000/api';
 

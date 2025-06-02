@@ -2,17 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SignupService } from '../../services/AuthServices/signup/signup.service';
-import { User } from '../../../types';
+import { SignupService } from '../../../services/AuthServices/signup/signup.service';
+import { User } from '../../../../types';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  templateUrl: './signup.html',
+  styleUrl: './signup.css'
 })
-export class SignupComponent {
+export class Signup {
   signupForm: FormGroup;
   user?: User
 
