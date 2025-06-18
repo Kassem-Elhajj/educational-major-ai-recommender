@@ -4,14 +4,21 @@
 
 For Angular:
 
->npx @angular/cli new frontend --routing --style=css --standalone=false
+>npx @angular/cli new frontend
 
 //To create the angular project Choose:
 ❌ No to SSR
-✅ No to zoneless (i.e., keep zone.js)
+❌ No to zoneless (i.e., keep zone.js)
 
 //To lunch the servers
 >ng serve                                       
+
+
+//Create a componenet:
+>ng generate component components/navbar
+
+//Create a service:
+>ng generate service services/auth
 
 
 
@@ -23,5 +30,11 @@ For FastAPI:
 
 //Run the backend server
 >uvicorn main:app --reload
+
+
+
+For mistral:
+on cmd you can open chat with the AI agent using
+>ollama run mistral
 
 

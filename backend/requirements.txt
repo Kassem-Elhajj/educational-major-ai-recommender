@@ -1,3 +1,8 @@
 fastapi
 uvicorn
-requests
+python-jose[cryptography]
+passlib
+python-multipart
+python-dotenv
+sqlalchemy
+pydantic
