@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class SignupService {
-  private url = 'http://127.0.0.1:8000/api';
+  private url = 'http://127.0.0.1:3000/users';
 
   constructor(private http: HttpClient, private handleApiErrorService: HandleApiErrorService) { }
 

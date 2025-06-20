@@ -4,9 +4,10 @@ import { Home } from './components/home/home';
 import { About } from './components/about/about';
 import { Login } from './components/Auth/login/login';
 import { Signup } from './components/Auth/signup/signup';
+import { AuthGuard } from './auth.guard';
 
 export const routes: Routes = [
-    { path: 'home', component: Home},
+    { path: 'home', component: Home, canActivate: [AuthGuard]},
     { path: 'form', component: Form },
     { path: 'about', component: About },
     { path: 'login', component: Login },

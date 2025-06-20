@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from app.api.v1 import auth
-from app.database.session import engine
-from app.models.user import Base
+from api.v1 import auth
+from database.session import engine
+from models.user import Base
 
 Base.metadata.create_all(bind=engine)
 

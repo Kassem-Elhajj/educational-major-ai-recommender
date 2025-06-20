@@ -11,7 +11,7 @@ import { User } from '../../../../types';
 export class LoginService {
   //To use API's make sure to include provideHttpClient() in providers in app.config.ts(Verrrry important)
 
-  private url = 'http://127.0.0.1:8000/api';
+  private url = 'http://127.0.0.1:3000/users';
 
   constructor(private http: HttpClient, private handleApiErrorService: HandleApiErrorService) { }
 

@@ -19,7 +19,7 @@ export class Signup {
   constructor(private fb: FormBuilder, private signupService: SignupService, private router: Router) {
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]], // Email field with validation
+      // email: ['', [Validators.required, Validators.email]], // Email field with validation
       password: ['', Validators.required],
     });
   }
@@ -27,9 +27,9 @@ export class Signup {
   onSubmit(): void {
     if (this.signupForm.valid) {
       this.user = {
-        name: this.signupForm.value.username,
-        email: this.signupForm.value.email,
-        password: this.signupForm.value.password
+        username: this.signupForm.value.username,
+        // email: this.signupForm.value.email,
+        hashed_password: this.signupForm.value.password
       };
       
       this.signupService.signup(this.user).subscribe({

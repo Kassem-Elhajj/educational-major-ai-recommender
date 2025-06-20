@@ -32,10 +32,10 @@ export class Login {
   onSubmit(): void {
     if (this.loginForm.valid) {
       const username = this.loginForm.value.username;
-      const password = this.loginForm.value.password;
+      const hashed_password = this.loginForm.value.password;
       this.user = {
-        name: username,
-        password: password
+        username: username,
+        hashed_password: hashed_password
       }
       this.loginService.login(this.user).subscribe({
         next: (response) => {

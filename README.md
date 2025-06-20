@@ -32,6 +32,10 @@ For FastAPI:
 >uvicorn main:app --reload
 
 
+//Run node.js:
+>npm run dev
+
+
 
 For mistral:
 on cmd you can open chat with the AI agent using
