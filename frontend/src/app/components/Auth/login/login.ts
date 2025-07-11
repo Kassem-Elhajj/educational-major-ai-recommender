@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class Login {
   loginForm: FormGroup;
   user?: User
+  isLoggedIn: boolean = false;
 
   constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -61,4 +62,14 @@ export class Login {
   navigateToSignup(): void {
     this.router.navigate(['/signup']);
   }
+
+  ngOnInit(): void {
+    // Check if the user is logged in by looking for the token in localStorage
+    this.isLoggedIn = !!localStorage.getItem('authToken');
+    if (this.isLoggedIn) {
+      // If the user is already logged in, redirect to the home page
+      this.router.navigate(['/home']);
+    }
+  }
+
 }

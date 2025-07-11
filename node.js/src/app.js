@@ -20,6 +20,9 @@ app.use(cookieParser());
 const UserRoute = require('./routes/UserRoute');
 app.use('/users', UserRoute)
 
+const RecommendationRoute = require('./routes/Recommendation');
+app.use('/recommendations', RecommendationRoute);
+
 // Test DB connection and sync models
 sequelize.authenticate()
   .then(() => {

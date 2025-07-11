@@ -1,0 +1,87 @@
+.survey-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 2px solid #4a90e2;          /* blue border */
+  border-radius: 12px;
+  background-color: #f9fbfd;           /* very light blue/gray background */
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+  color: #2c3e50;
+}
+
+h1, h2 {
+  color: #34495e;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.grades-section,
+.questions-section,
+.school-route {
+  margin-bottom: 35px;
+}
+
+.grade-field,
+.question-block {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #34495e; /* deep slate blue */
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1.8px solid #a3b1c6;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
+  outline: none;
+}
+
+.school-route label {
+  margin: 8px 0;
+  color: #34495e;
+  cursor: pointer;
+}
+
+.school-route input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Center submit button */
+form button {
+  display: block;
+  margin: 20px auto 0 auto;
+  width: 200px;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+  transition: background-color 0.25s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+  background-color: #357ABD;
+  box-shadow: 0 6px 12px rgba(53, 122, 189, 0.5);
+}

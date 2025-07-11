@@ -6,3 +6,5 @@ python-multipart
 python-dotenv
 sqlalchemy
 pydantic
+PyMySQL==1.1.0
+mysqlclient==2.2.4  # Or use pymysql if you prefer

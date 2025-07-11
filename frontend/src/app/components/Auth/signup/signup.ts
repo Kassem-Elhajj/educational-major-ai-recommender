@@ -15,6 +15,7 @@ import { User } from '../../../../types';
 export class Signup {
   signupForm: FormGroup;
   user?: User
+  isLoggedIn: boolean = false;
 
   constructor(private fb: FormBuilder, private signupService: SignupService, private router: Router) {
     this.signupForm = this.fb.group({
@@ -53,5 +54,14 @@ export class Signup {
 
   navigateToLogin(): void{
     this.router.navigate(['/login'])
+  }
+
+  ngOnInit(): void {
+    // Check if the user is logged in by looking for the token in localStorage
+    this.isLoggedIn = !!localStorage.getItem('authToken');
+    if (this.isLoggedIn) {
+      // If the user is already logged in, redirect to the home page
+      this.router.navigate(['/home']);
+    }
   }
 }

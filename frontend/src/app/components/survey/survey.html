@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="survey-container">
+  <h1>Student Academic & Interest Survey</h1>
+
+  <form #surveyForm="ngForm">
+    <!-- === GRADES INPUT === -->
+    <h2>Enter Your Grades</h2>
+    <div class="grades-section">
+      <div class="grade-field" *ngFor="let subject of subjects">
+        <label>{{ subject }} Grade:</label>
+        <input type="number" min="0" max="100" [(ngModel)]="grades[subject]" name="{{ subject }}" required />
+      </div>
+    </div>
+
+    <!-- === SCHOOL ROUTE MCQ === -->
+    <h2>What is your current school route?</h2>
+    <div class="school-route">
+      <label *ngFor="let route of schoolRoutes">
+        <input type="radio" name="schoolRoute" [(ngModel)]="selectedRoute" [value]="route" required />
+        {{ route }}
+      </label>
+    </div>
+
+    <!-- === INTEREST & APTITUDE QUESTIONS === -->
+    <h2>Interest and Aptitude Questions</h2>
+    <div class="questions-section">
+      <div *ngFor="let q of interestQuestions; let i = index" class="question-block">
+        <label>{{ i + 1 }}. {{ q.question }}</label>
+        <select [(ngModel)]="answers[i]" name="question{{ i }}" required>
+          <option value="" disabled selected>Select an option</option>
+          <option *ngFor="let opt of q.options" [value]="opt">{{ opt }}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- === SUBMIT === -->
+    <button type="submit" (click)="submitSurvey()">Submit Survey</button>
+  </form>
+</div>

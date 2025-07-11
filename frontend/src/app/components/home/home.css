@@ -23,7 +23,7 @@
 }
 
 h1 {
-  color: #2E7D32;
+  color: #357ABD;
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
@@ -71,7 +71,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: #4CAF50;
+  background-color: #357ABD;
   color: white;
   padding: 0.8rem 1.8rem;
   border: none;
@@ -84,7 +84,7 @@ h1 {
 }
 
 .survey-btn:hover {
-  background-color: #45a049;
+  background-color: #357ABD;
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
 }
@@ -130,12 +130,12 @@ h1 {
 
 .feature-icon {
   font-size: 2rem;
-  color: #4CAF50;
+  color: #357ABD;
   margin-bottom: 1rem;
 }
 
 .feature-card h3 {
-  color: #2E7D32;
+  color: #357ABD;
   margin-bottom: 0.5rem;
 }
 
