@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Navbar } from "../navbar/navbar";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SurveyData } from '../../../types';
+import { surveyService } from '../../services/survey'; // Adjust the import path as necessary
 
 @Component({
   selector: 'app-survey',
@@ -10,6 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './survey.css'
 })
 export class Survey {
+  constructor(private surveyService: surveyService) {}
+
   subjects = [
     'Math', 'Physics', 'Chemistry', 'Biology', 'English', 'Arabic',
     'Economic', 'History', 'Geography', 'Civics',
@@ -37,9 +41,21 @@ export class Survey {
   answers: string[] = [];
 
   submitSurvey() {
-    console.log('Grades:', this.grades);
-    console.log('Selected Route:', this.selectedRoute);
-    console.log('Interest Answers:', this.answers);
-    // You can send this data to the backend here
+    const data: SurveyData = {
+      grades: this.grades,
+      selectedRoute: this.selectedRoute,
+      answers: this.answers,
+    };
+
+    this.surveyService.submitSurvey(data).subscribe({
+      next: (response) => {
+        console.log('Survey submitted successfully,', response.message);
+        // Optionally show a success message or reset form
+      },
+      error: (error) => {
+        console.error('Error submitting survey', error);
+        // Handle error (show message, retry, etc.)
+      },
+    });
   }
 }
