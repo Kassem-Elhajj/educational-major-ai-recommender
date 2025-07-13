@@ -3,7 +3,8 @@ import { Navbar } from "../navbar/navbar";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SurveyData } from '../../../types';
-import { surveyService } from '../../services/survey'; // Adjust the import path as necessary
+import { surveyService } from '../../services/survey'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-survey',
@@ -12,7 +13,9 @@ import { surveyService } from '../../services/survey'; // Adjust the import path
   styleUrl: './survey.css'
 })
 export class Survey {
-  constructor(private surveyService: surveyService) {}
+  constructor(private surveyService: surveyService, private router: Router) {}
+
+  loading = false;
 
   subjects = [
     'Math', 'Physics', 'Chemistry', 'Biology', 'English', 'Arabic',
@@ -41,6 +44,8 @@ export class Survey {
   answers: string[] = [];
 
   submitSurvey() {
+    this.loading = true;
+
     const data: SurveyData = {
       grades: this.grades,
       selectedRoute: this.selectedRoute,
@@ -49,12 +54,19 @@ export class Survey {
 
     this.surveyService.submitSurvey(data).subscribe({
       next: (response) => {
-        console.log('Survey submitted successfully,', response.message);
-        // Optionally show a success message or reset form
+        this.loading = false;
+        if (response.status === 'ok' && response.recommendation) {
+          this.router.navigate(['/results'], {
+            queryParams: { recommendation: response.recommendation }
+          });
+        } else {
+          alert(response.message || 'No recommendation available');
+        }
       },
       error: (error) => {
+        this.loading = false;
         console.error('Error submitting survey', error);
-        // Handle error (show message, retry, etc.)
+        alert('Failed to submit survey. Please try again.');
       },
     });
   }

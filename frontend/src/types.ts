@@ -12,3 +12,8 @@ export interface SurveyData {
   selectedRoute: string;
   answers: string[];
 }
+
+export interface MajorRecommendation {
+  major: string;
+  reason: string;
+}

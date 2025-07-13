@@ -1,0 +1,45 @@
+.results-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.results-container h1 {
+  text-align: center;
+  color: #1e3a8a; /* deep blue */
+  margin-bottom: 30px;
+}
+
+.recommendation-card {
+  background-color: #ffffff;
+  border-left: 5px solid #3b82f6; /* vibrant blue border */
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.recommendation-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.recommendation-card h2 {
+  color: #2563eb; /* vibrant blue for titles */
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.recommendation-card p {
+  margin: 10px 0 0;
+  color: #475569; /* soft slate gray for text */
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+

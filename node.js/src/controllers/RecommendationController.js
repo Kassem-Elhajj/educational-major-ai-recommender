@@ -13,6 +13,11 @@ const interestQuestions = [
   'Would you consider a career in healthcare or biology?',
 ];
 
+const requiredSubjects = [
+  'Math', 'Physics', 'Chemistry', 'Biology', 'English', 'Arabic',
+  'Economic', 'History', 'Geography', 'Civics',
+  'Social Science', 'Informatics', 'Philosophy'
+];
 
 const recommendMajor = async (req, res) => {
   try {
@@ -20,17 +25,51 @@ const recommendMajor = async (req, res) => {
     const { grades, selectedRoute, answers } = req.body;
 
     if (!grades || !selectedRoute || !answers) {
-      return res.status(400).json({ status: 'failed', message: 'Missing grades, selectedRoute, or answers' });
+      return res.json({ status: 'failed', message: 'Please fill all the survey.' });
     }
 
-    // Map questions to answers safely
-    const qaPairs = interestQuestions.map((q, i) => {
-      const ans = answers[i] || 'No answer';
-      return `${q}: ${ans}`;
-    }).join('\n');
+    // Check all subjects have a grade
+    for (const subject of requiredSubjects) {
+      if (
+        grades[subject] === undefined ||
+        grades[subject] === null
+      ) {
+        return res.json({ status: 'failed', message: `Please fill all grades. Missing: ${subject}` });
+      }
+    }
+
+    // Check selected route
+    if (!selectedRoute || selectedRoute.trim() === '') {
+      return res
+        .status(400)
+        .json({ status: 'failed', message: 'Please select your school route.' });
+    }
+
+    // Check all answers are present
+    if (answers.length !== interestQuestions.length) {
+      return res.json({ status: 'failed', message: 'Please answer all interest questions.' });
+    }
+
+    for (let i = 0; i < interestQuestions.length; i++) {
+      const answer = answers[i];
+      if (!answer || answer.trim() === '') {
+        return res.json({ status: 'failed', message: `Please answer question #${i + 1}: "${interestQuestions[i]}"` });
+      }
+    }
+
+    // Everything validated
+    const qaPairs = interestQuestions
+      .map((q, i) => {
+        const ans = answers[i];
+        return `${q}: ${ans}`;
+      })
+      .join('\n');
 
     const prompt = `
-Based on the following grades, selected school route, and interest answers, recommend 3 university majors (each one on a line) and explain your reasoning in one sentence for each.
+Based on the following grades, selected school route,
+and interest answers, recommend 5 university majors (each one on a line)
+and explain your reasoning in one sentence for each.
+After each major name put this character ":".
 
 Grades: ${JSON.stringify(grades, null, 2)}
 Selected Route: ${selectedRoute}
@@ -45,16 +84,15 @@ ${qaPairs}
     });
 
     const recommendation = ollamaResponse.data.response.trim();
-    console.log('Ollama response:', recommendation);
     res.json({ status: 'ok', recommendation });
 
   } catch (err) {
     console.error('Error in recommendMajor:', err);
-    res.status(500).json({ status: 'failed', message: err.message });
+    res
+      .status(500)
+      .json({ status: 'failed', message: err.message });
   }
 };
-
-
 
 module.exports = {
   recommendMajor

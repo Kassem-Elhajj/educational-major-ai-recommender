@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<div class="results-container">
+  <h1>Your Personalized Recommendations</h1>
+
+  <div *ngFor="let rec of recommendations" class="recommendation-card">
+    <h2>{{ rec.major }}</h2>
+    <p>{{ rec.reason }}</p>
+  </div>
+</div>
+

@@ -6,6 +6,7 @@ import { Login } from './components/Auth/login/login';
 import { Signup } from './components/Auth/signup/signup';
 import { AuthGuard } from './auth.guard';
 import { Survey } from './components/survey/survey';
+import { Results } from './components/results/results';
 
 export const routes: Routes = [
     { path: 'home', component: Home, canActivate: [AuthGuard]},
@@ -14,6 +15,7 @@ export const routes: Routes = [
     { path: 'login', component: Login },
     { path: 'signup', component: Signup },
     { path: 'survey', component: Survey },
+    { path: 'results', component: Results },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', redirectTo: '' } 
 ];
