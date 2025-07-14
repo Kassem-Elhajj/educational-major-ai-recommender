@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+
+<div class="results-container">
+  <h1>All Results</h1>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngFor="let result of results" class="result-card">
+  <span class="result-type">{{ result.type }}</span>
+  <h2>{{ result.createdAt | date:'medium' }}</h2>
+  <p>{{ result.resulttxt | slice: 0:300 }}...</p>
+  <button (click)="viewResult(result.id)">See More</button>
+</div>
+
+</div>
+

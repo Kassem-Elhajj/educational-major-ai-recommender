@@ -19,4 +19,17 @@ export class Navbar {
   homeNavigation() {
     this.router.navigate(['/']);
   }
+
+  resultsNavigation() {
+    this.router.navigate(['/results_page']);
+  }
+  //logout function
+  logout() {
+    localStorage.removeItem('authToken'); // Assuming you store the token in localStorage
+    this.router.navigate(['/login']);
+  }
+
+  contactUsNavigation() {
+    this.router.navigate(['/contact-us']);
+  }
 }

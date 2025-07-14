@@ -23,6 +23,9 @@ app.use('/users', UserRoute)
 const RecommendationRoute = require('./routes/Recommendation');
 app.use('/recommendations', RecommendationRoute);
 
+const ResultsRoute = require('./routes/ResultsRoute');
+app.use('/results', ResultsRoute);
+
 // Test DB connection and sync models
 sequelize.authenticate()
   .then(() => {

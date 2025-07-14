@@ -41,6 +41,9 @@ export class Survey {
     { question: 'Would you consider a career in healthcare or biology?', options: ['Yes', 'No', 'Maybe'] },
   ];
 
+  aiMethods = ['AI', 'Rule-based'];
+  selectedMethod = '';
+
   answers: string[] = [];
 
   submitSurvey() {
@@ -50,6 +53,7 @@ export class Survey {
       grades: this.grades,
       selectedRoute: this.selectedRoute,
       answers: this.answers,
+      selectedMethod: this.selectedMethod
     };
 
     this.surveyService.submitSurvey(data).subscribe({

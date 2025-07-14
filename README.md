@@ -22,16 +22,6 @@ For Angular:
 
 
 
-For FastAPI:
-
-//Set up the environment
->python -m venv venv
->venv\Scripts\activate  # Windows
-
-//Run the backend server
->uvicorn main:app --reload
-
-
 //Run node.js:
 >npm run dev
 

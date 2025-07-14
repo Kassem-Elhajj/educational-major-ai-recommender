@@ -10,6 +10,16 @@
 <div class="survey-container">
   <h1>Student Academic & Interest Survey</h1>
 
+  
+    <!-- === AI/Rule based MCQ === -->
+    <h2>What method do you want to use?</h2>
+    <div class="school-route">
+      <label *ngFor="let method of aiMethods">
+        <input type="radio" name="aiMethod" [(ngModel)]="selectedMethod" [value]="method" required />
+        {{ method }}
+      </label>
+    </div>
+
   <form #surveyForm="ngForm">
     <!-- === GRADES INPUT === -->
     <h2>Enter Your Grades</h2>
