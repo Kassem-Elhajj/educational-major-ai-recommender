@@ -89,7 +89,7 @@ const login = async (req, res) => {
 
         hashed_isPasswordCorrect = await bcrypt.compare(hashed_password, existingUser.hashed_password)
         if(!hashed_isPasswordCorrect)
-            return res.json({status: 'failed', message: 'hashed_password is wrong!'})
+            return res.json({status: 'failed', message: 'Password is wrong!'})
 
 
         const jwtSecretKey = process.env.jwtSecretKey
