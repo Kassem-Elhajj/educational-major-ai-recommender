@@ -21,3 +21,7 @@ docker-compose.override.yml
 
 #node.js
 node_modules
+
+
+#for the ngrok(like) tunnel
+ngrok.exe

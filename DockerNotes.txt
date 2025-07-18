@@ -1,0 +1,22 @@
+make sure to change the env variables in the backend(nodejs) env file to be compatible with the variables in the yaml file
+
+-->docker-compose down -v 
+ (It cleans everything, including persistent data in volumes (like your MySQL database data).
+Use it if you want a fresh reset, but be careful — you'll lose data stored in volumes unless it's backed up.)
+
+
+-->docker-compose up --build
+(Does two things:
+--build: Forces Docker to rebuild the images for your services (from the Dockerfile), even if they were previously built.
+up:
+Builds (if needed), creates, and starts the containers.
+
+Also attaches the logs to your terminal (unless you add -d for detached mode).)
+
+
+-->docker-compose stop
+(stop the containers)
+
+
+-->docker-compose start
+(start the containers)

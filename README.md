@@ -32,3 +32,7 @@ on cmd you can open chat with the AI agent using
 >ollama run mistral
 
 
+ngrok:
+>this websote is used for auth and quide to use this(like tunnel):
+>https://dashboard.ngrok.com/get-started/setup/windows
+>enable the tunnel: ngrok.exe http 4200
