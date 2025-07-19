@@ -1,3 +1,7 @@
+We have the yaml file in this directory that draw the shape of the containers
+we have three containers(frontend, backend, and mySQL), all of them are grouped under one name, so when the docker start, all the containers start at a specific order to assure success start
+in each technology(backend, frontend) there is a docker file that controls the container of the tech.
+
 make sure to change the env variables in the backend(nodejs) env file to be compatible with the variables in the yaml file
 
 -->docker-compose down -v 
